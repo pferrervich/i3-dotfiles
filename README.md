@@ -6,10 +6,10 @@ pactl
 xbacklight  
 playerctl  
 xrandr  
-feh
-rofi
-compton
+feh  
+rofi  
+compton  
 
-Fonts:
-System San Francisco Display
-FontAwesome 8
+Fonts:  
+System San Francisco Display  
+FontAwesome 8  
