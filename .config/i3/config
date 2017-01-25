@@ -239,3 +239,4 @@ exec firefox
 exec atom
 exec google-play-music-desktop-player
 exec_always compton -f
+exec sh ~/.config/i3/mouse.sh
