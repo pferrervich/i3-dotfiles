@@ -9,6 +9,9 @@ xrandr
 feh  
 rofi  
 compton  
+  
+neofetch  
+  
 
 Fonts:  
 System San Francisco Display  
