@@ -13,3 +13,4 @@ compton
 Fonts:  
 System San Francisco Display  
 FontAwesome  
+Hack  
