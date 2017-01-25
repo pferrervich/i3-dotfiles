@@ -9,7 +9,6 @@ xrandr
 feh  
 rofi  
 compton  
-  
 neofetch  
   
 
