@@ -12,4 +12,4 @@ compton
 
 Fonts:  
 System San Francisco Display  
-FontAwesome 8  
+FontAwesome  
