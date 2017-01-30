@@ -10,6 +10,7 @@ feh
 rofi  
 compton  
 neofetch  
+zsh shell  
   
 
 Fonts:  
