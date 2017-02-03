@@ -11,6 +11,7 @@ rofi
 compton  
 neofetch  
 zsh shell  
+sxiv  
   
 
 Fonts:  
