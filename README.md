@@ -12,6 +12,7 @@ compton
 neofetch  
 zsh shell  
 sxiv  
+cava  
   
 
 Fonts:  
