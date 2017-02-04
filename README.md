@@ -13,6 +13,7 @@ neofetch
 zsh shell  
 sxiv  
 cava  
+dropbox-cli
   
 
 Fonts:  
