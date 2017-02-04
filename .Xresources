@@ -3,6 +3,14 @@ URxvt.scrollBar: false
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0200/c800
 
+! Copy and Paste Script
+! https://nixmeal.wordpress.com/2012/07/24/copypaste-text-in-urxvt-rxvt-unicode-using-keyboard/
+
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
+
+
 ! special
 *.foreground:   #c5c8c6
 *.background:   #1d1f21
