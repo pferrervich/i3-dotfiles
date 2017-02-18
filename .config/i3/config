@@ -223,7 +223,7 @@ workspace "3: Editor " output LVDS1
 workspace "8: Secundaria " output VGA1
 workspace "10: Música " output LVDS1
 
-exec_always feh --bg-fill /home/poh/Pictures/Wallpapers/wallhaven-106970.jpg
+exec_always feh --bg-fill /home/poh/Pictures/Wallpapers/Pjw41.jpg
 
 #Gaps
 gaps inner 5
@@ -233,6 +233,7 @@ gaps outer 10
 bindsym $mod+shift+x exec sh ~/.config/i3/lock.sh
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
+
 #Custom execs
 exec rxvt-unicode
 exec firefox
@@ -240,3 +241,4 @@ exec atom
 exec google-play-music-desktop-player
 exec_always compton -f
 exec sh ~/.config/i3/mouse.sh
+exec –no-startup-id sleep 3 && xfce4-power-manager
