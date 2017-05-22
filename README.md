@@ -14,6 +14,7 @@ zsh shell
 sxiv  
 cava  
 dropbox-cli
+vim-airline
   
 
 Fonts:  
