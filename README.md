@@ -13,7 +13,7 @@ neofetch
 zsh shell  
 sxiv  
 cava  
-dropbox-cli
+dropbox-cli  
 vim-airline
   
 
