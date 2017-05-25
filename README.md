@@ -13,9 +13,12 @@ neofetch
 zsh shell  
 sxiv  
 cava  
-dropbox-cli
+dropbox-cli  
+vim-airline
   
-
+Shell:  
+zsh (config from https://github.com/xero/dotfiles)  
+  
 Fonts:  
 System San Francisco Display  
 FontAwesome  
