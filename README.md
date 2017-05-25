@@ -1,4 +1,7 @@
 # i3-dotfiles
+  
+![alt text](http://i.imgur.com/S5rYphD.png)  
+   
 i3-gaps  
 i3blocks  
 rxvt-unicode  
