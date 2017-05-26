@@ -20,7 +20,7 @@ dropbox-cli
 vim-airline
 
 Vim:
-https://github.com/VundleVim/Vundle.vim
+https://github.com/VundleVim/Vundle.vim  
 https://github.com/morhetz/gruvbox
   
 Shell:  
