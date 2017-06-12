@@ -8,6 +8,7 @@ rxvt-unicode
 pactl  
 xbacklight  
 playerctl  
+nvm  
 xrandr  
 feh  
 rofi  
