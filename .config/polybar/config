@@ -1,0 +1,346 @@
+;
+;             _       _                                   __ _       
+; _ __   ___ | |_   _| |__   __ _ _ __    ___ ___  _ __  / _(_) __ _ 
+;| '_ \ / _ \| | | | | '_ \ / _` | '__|  / __/ _ \| '_ \| |_| |/ _` |
+;| |_) | (_) | | |_| | |_) | (_| | |    | (_| (_) | | | |  _| | (_| |
+;| .__/ \___/|_|\__, |_.__/ \__,_|_|     \___\___/|_| |_|_| |_|\__, |
+;|_|            |___/                                          |___/ 
+
+
+;*********************************************************
+;
+;                          COLORS
+;
+;**********************************************************
+
+[colors]
+; Base colors from .Xresources
+bg        =   ${xrdb:color0}
+bg-alt    =   #271c24
+fg        =   ${xrdb:color15}
+fg-alt    =   ${xrdb:color8}
+# Red real; el red de abajo lo cambié para que fuese azul.
+#red       =   ${xrdb:color1}
+red       =   ${xrdb:color4}
+green     =   ${xrdb:color2}
+yellow    =   ${xrdb:color3}
+blue      =   ${xrdb:color4}
+blue-alt  =   ${xrdb:color12}
+magenta   =   ${xrdb:color5}
+cyan      =   ${xrdb:color6}
+white     =   ${xrdb:color7}
+white-alt =   ${xrdb:color15}
+
+;**********************************************************
+;
+;                       GLOBAL WM SETTINGS
+;
+;**********************************************************
+
+[global/wm]
+margin-top = 20
+margin-bottom = 0
+
+;*********************************************************
+;
+;                       BAR SETTINGS
+;
+;********************************************************
+
+[bar/top]
+monitor = ${env:MONITOR:LVDS1}
+bottom = false
+width = 98%
+height = 28
+offset-x = 1%
+offset-y = 10
+
+override-redirect = true
+
+fixed-center = true
+
+;background = ${colors.bg}
+background = #2f343f
+foreground = ${colors.fg}
+
+;border-bottom-size = 1
+;border-top-size = 3
+;border-top-color = ${colors.green}
+;border-bottom-color = ${colors.bg-alt}
+
+spacing = 0
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Dina:size=6:antialias=true;1
+;font-0 = lucy tewi:size=4:antialias=true;1
+font-1 = Wuncon Siji:antialias=true;1
+font-2 = FontAwesome:antialias=true;1
+
+modules-left = menu i3 spotify
+modules-center = date
+modules-right = redshift pavolume uptime pkg temperature memory cpu wlan battery
+
+
+;tray-position = right
+;tray-padding = 0
+
+
+;;transparent polybar that fixes the problems with i3-gaps and override-redirect
+
+[bar/transparent]
+monitor = ${env:MONITOR:LVDS1}
+bottom = false
+width = 98%
+height = 38
+offset-x = 1%
+offset-y = 10
+
+fixed-center = true
+
+background = #000f0f0f
+
+spacing = 0
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = menu 
+
+
+;**********************************************************
+;
+;                   MODULES SETTINGS
+;
+;**********************************************************
+
+[module/i3]
+type = internal/i3
+
+; ws-icon-[0-9]+ = label;icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+strip-wsnumbers = true
+
+label-focused = 
+label-focused-foreground = ${colors.fg}
+label-focused-padding = 1
+
+label-unfocused = 
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.fg}
+;label-unfocused-background = ${colors.bg-alt}
+
+label-urgent = 
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 1
+
+label-visible = 
+label-visible-foreground = ${colors.fg}
+;label-visible-background = ${colors.bg-alt}
+label-visible-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+label = "%percentage%"
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+label = "%percentage_used%"
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+
+label-connected = %essid%
+label-connected-foreground = ${colors.fg}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.fg-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.red}
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.fg-alt}
+label-connected = %local_ip%
+
+
+click-left = exec rm-connection-editor
+
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.fg}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %d/%m/%y
+;date-alt = %a %d %b %Y
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+;format-prefix = 
+;format-prefix-foreground = ${colors.fg-alt}
+
+label = " %{F#5F819D}%date%%{F-} %time% "
+label-foreground = ${colors.fg}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 100
+
+format-charging = "<animation-charging> <label-charging> "
+format-discharging = "<ramp-capacity> <label-discharging> "
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.red}
+
+ramp-capacity-0 =  
+ramp-capacity-1 =  
+ramp-capacity-2 =  
+ramp-capacity-foreground = ${colors.red}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.white-alt}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = "<ramp> <label>"
+format-warn = "<ramp> <label-warn>"
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.red}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.red}
+
+[module/menu]
+type = custom/menu
+
+menu-0-0 = " Todo "
+menu-0-1 = " Todo "
+menu-0-0-foreground = ${colors.green}
+menu-0-0-exec = $HOME/.config/polybar/popups/todo/todo
+
+label-open = 
+label-open-foreground = ${colors.red}
+label-close = <<
+label-close-foreground = ${colors.fg}
+
+[module/mail]
+type = custom/script
+interval = 10
+format = "<label>"
+format-prefix = ""
+format-prefix-foreground = ${colors.red}
+exec = ~/.config/polybar/mail
+
+[module/uptime]
+type = custom/script
+interval = 50
+format = "<label>"
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+exec = ~/.config/polybar/uptime
+
+;[module/mpd]
+;type = custom/script
+;interval = 2
+;format = "<label>"
+;format-prefix = " "
+;format-prefix-foreground = ${colors.red}
+;exec = ~/.config/polybar/mpd
+; vim:ft=dosini
+
+[module/spotify]
+type = custom/script
+interval = 2
+format = "<label>"
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+exec = ~/.config/polybar/spotify.sh
+
+[module/pkg]
+type = custom/script
+interval = 1200
+format = <label>
+format-underline = #dc322f
+label = "%output:0:30%"
+exec = .config/polybar/pkg.sh
+exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+[module/gmail]
+type = custom/script
+exec = ~/.config/polybar/gmail/launch.py
+tail = true
+click-left = xdg-open https://mail.google.com
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+exec = ~/.config/polybar/weather
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+format = "<label>"
+format-prefix = ""
+format-prefix-foreground = ${colors.red}
+exec = ~/.config/polybar/pavolume.sh
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
+
+[module/redshift]
+type = custom/script
+interval = 5
+
+exec = ~/.config/polybar/redshift.sh

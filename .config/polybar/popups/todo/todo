@@ -1,0 +1,20 @@
+#!/bin/sh
+# A simple Todo List using notify-send
+
+#image='$HOME/Pictures/notify/todo/bg.png'
+
+. $HOME/.local/bin/color-parser
+
+notify-send "
+<span foreground='$BBLACK'>
+<span foreground='$BWHITE' >    Weekdays </span>             <span foreground='$BWHITE' > Weekend </span>     
+
+<span foreground='$RED'>1. </span>Assembly    <span foreground='$FG'>1hr</span>    <span foreground='$RED'>1. </span>CounterHack  <span foreground='$FG'>2hr</span>
+<span foreground='$RED'>2. </span>C Code      <span foreground='$FG'>1hr</span>    <span foreground='$RED'>2. </span>Metasploit   <span foreground='$FG'>1hr</span>
+<span foreground='$RED'>3. </span>Networking  <span foreground='$FG'>1hr</span>    <span foreground='$RED'>3. </span>Privacy      <span foreground='$FG'>1hr</span>
+<span foreground='$RED'>4. </span>*NIX Stuff  <span foreground='$FG'>1hr</span>    <span foreground='$RED'>4. </span>PenLab       <span foreground='$FG'>1hr</span>
+<span foreground='$RED'>5. </span>Code Book   <span foreground='$FG'>1hr</span>    <span foreground='$RED'>5. </span>GoogleHack   <span foreground='$FG'>1hr</span>
+<span foreground='$RED'>6. </span>Perl Code   <span foreground='$FG'>1hr</span>
+<span foreground='$RED'>7. </span>Metasploit  <span foreground='$FG'>1hr</span>
+</span>
+"

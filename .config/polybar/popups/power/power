@@ -1,0 +1,43 @@
+#!/bin/sh
+
+. $HOME/.config/polybar/lemonbar_config
+
+# Panel 
+PW=180
+PH=70
+PX=1172
+PY=66
+
+
+n30f -d -x 1172 -y 40 $HOME/.config/polybar/popups/power/bg.png &
+
+
+echo "  %{F$RED}%{F-} %{A:s:}Suspend%{A}  %{F$RED} %{F-}%{A:l:}Lock%{A}  %{F$RED} %{F-}%{A:e:}Exit%{A}" | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -f "$FONT3" -B "$BG" -F "$FG" -dp | \
+    while :; do
+        read line
+        case $line in 
+            'e')
+                p=$(pgrep -n lemonbar)
+                n=$(pgrep -n n30f)
+                kill $n
+                kill $p 
+                exit 
+                ;;
+            'l')
+                i3lock-fancy &
+                p=$(pgrep -n lemonbar)
+                n=$(pgrep -n n30f)
+                kill $n
+                kill $p 
+                exit                
+                ;;
+            's')
+                systemctl suspend
+                p=$(pgrep -n lemonbar)
+                n=$(pgrep -n n30f)
+                kill $n
+                kill $p
+                exit
+                ;;
+        esac
+    done

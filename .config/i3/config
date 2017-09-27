@@ -13,7 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display, FontAwesome 8
+
+#font pango:System San Francisco Display, FontAwesome 8
+#font pango: xos4 Terminus, FontAwesome 8
+
+font pango: lucy tewi, FontAwesome 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,7 +34,7 @@ font pango:System San Francisco Display, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec rxvt-unicode
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -124,10 +128,10 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Programas abiertos en workspaces por defecto
-assign [class="rxvt-unicode"] $workspace1
+assign [class="URxvt"] $workspace1
 assign [class="Firefox"] $workspace2
 assign [class="Atom"] $workspace3
-assign [class="Google Play Music Desktop Player"] $workspace10
+assign [class="spotify"] $workspace10
 assign [class="Thunar"] $workspace4
 
 
@@ -180,21 +184,28 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Desactivar borde indicador nueva ventana
 #hide_edge_borders both
 
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        colors {
-		            background $bg-color
-	    	        separator #757575
-		            #                  border             background         text
-		            focused_workspace  $bg-color          $bg-color          $text-color
-		            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-}
-        position top
-        tray_output primary
-}
+#bar {
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#        colors {
+#		            background $bg-color
+#	    	        separator #757575
+#		            #                  border             background         text
+#		            focused_workspace  $bg-color          $bg-color          $text-color
+#		            inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		            urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#}
+#        position top
+#        tray_output primary
+#}
+
+
+
+#Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 
 # Pulse Audio controls
@@ -225,10 +236,10 @@ workspace "3: Editor " output LVDS1
 workspace "8: Secundaria " output VGA1
 workspace "10: Música " output LVDS1
 
-exec_always feh --bg-fill /home/poh/Pictures/Wallpapers/KH43Uao.jpg
+exec_always feh --bg-fill /home/poh/Imagenes/Wallpapers/wallhaven-476492.jpg
 
 #Gaps
-gaps inner 5
+gaps inner 15
 gaps outer 10
 bindsym $mod+b gaps inner current plus 5
 bindsym $mod+shift+b gaps inner current minus 5
@@ -245,9 +256,12 @@ bindsym $mod+shift+x exec sh ~/.config/i3/lock.sh
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 #Custom execs
-exec rxvt-unicode
-exec firefox
+exec URxvt
+exec firefox-nightly
 exec atom
-exec google-play-music-desktop-player
 exec_always compton -f
+exec thunar
 exec sh ~/.config/i3/mouse.sh
+
+#No title bars
+for_window [class="^.*"] border pixel 0
