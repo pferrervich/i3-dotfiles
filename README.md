@@ -4,6 +4,7 @@
    
 i3-gaps  
 ~~i3blocks~~  
+Polybar  
 rxvt-unicode  
 pactl  
 xbacklight  
