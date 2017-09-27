@@ -1,9 +1,9 @@
 # i3-dotfiles
   
-![Screenshot](http://i.imgur.com/S5rYphD.png)  
+![Screenshot](https://i.imgur.com/9EutC1a.png)  
    
 i3-gaps  
-i3blocks  
+~~i3blocks~~  
 rxvt-unicode  
 pactl  
 xbacklight  
@@ -31,3 +31,4 @@ Fonts:
 System San Francisco Display  
 FontAwesome  
 Hack  
+Terminus  
