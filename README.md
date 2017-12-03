@@ -21,6 +21,9 @@ cava
 dropbox-cli  
 vim-airline
 
+Dunst notifications:
+https://github.com/dunst-project/dunst
+
 Vim:
 https://github.com/VundleVim/Vundle.vim  
 https://github.com/morhetz/gruvbox
