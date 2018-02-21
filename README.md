@@ -1,37 +1,46 @@
 # i3-dotfiles
   
-![Screenshot](https://i.imgur.com/9EutC1a.png)  
+![Screenshot](https://i.imgur.com/PlYR8MT.png)  
    
-i3-gaps  
-~~i3blocks~~  
-Polybar  
-rxvt-unicode  
-pactl  
-xbacklight  
-playerctl  
-nvm  
-xrandr  
-feh  
-rofi  
-compton  
-neofetch  
-zsh shell  
-sxiv  
-cava  
-dropbox-cli  
-vim-airline
+> i3-gaps  
+> ~~i3blocks~~  
+> Polybar  
+> rxvt-unicode  
+> pactl  
+> xbacklight  
+> playerctl  
+> nvm  
+> xrandr  
+> feh  
+> rofi  
+> compton  
+> neofetch  
+> zsh shell  
+> sxiv  
+> cava  
+> dropbox-cli  
+> vim-airline
 
 Dunst notifications:
 https://github.com/dunst-project/dunst
 
-Vim:
+### Vim config:
 https://github.com/VundleVim/Vundle.vim  
 https://github.com/morhetz/gruvbox
   
-Shell:  
+### Shell config:  
 zsh (config from https://github.com/xero/dotfiles)  
   
-Fonts:  
+### Fonts: 
+
+| Font | Link |
+| ------ | ------ |
+| System San Francisco Display | [https://github.com/supermarin/YosemiteSanFranciscoFont](https://github.com/supermarin/YosemiteSanFranciscoFont) |
+| FontAwesome | [https://fontawesome.com/](https://fontawesome.com/) |
+| Hack | [https://github.com/source-foundry/Hack](https://github.com/source-foundry/Hack) |
+| Terminus | [http://terminus-font.sourceforge.net/](http://terminus-font.sourceforge.net/) |
+
+
 System San Francisco Display  
 FontAwesome  
 Hack  
