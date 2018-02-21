@@ -2,7 +2,7 @@
   
 ![Screenshot](https://i.imgur.com/PlYR8MT.png)  
    
-### Libraries needed  
+### You need to download    
 > i3-gaps  
 > ~~i3blocks~~  
 > Polybar  
