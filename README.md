@@ -2,6 +2,7 @@
   
 ![Screenshot](https://i.imgur.com/PlYR8MT.png)  
    
+### Libraries needed  
 > i3-gaps  
 > ~~i3blocks~~  
 > Polybar  
@@ -41,7 +42,3 @@ zsh (config from https://github.com/xero/dotfiles)
 | Terminus | [http://terminus-font.sourceforge.net/](http://terminus-font.sourceforge.net/) |
 
 
-System San Francisco Display  
-FontAwesome  
-Hack  
-Terminus  
