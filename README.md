@@ -7,7 +7,7 @@
 > ~~i3blocks~~  
 > Polybar  
 > ~~rxvt-unicode~~ 
-> termite
+> termite  
 > pactl  
 > xbacklight  
 > playerctl  
