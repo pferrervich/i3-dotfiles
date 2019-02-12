@@ -6,7 +6,7 @@
 > i3-gaps  
 > ~~i3blocks~~  
 > Polybar  
-> ~~rxvt-unicode~~ 
+> ~~rxvt-unicode~~  
 > termite  
 > pactl  
 > xbacklight  
