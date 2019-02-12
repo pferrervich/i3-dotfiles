@@ -6,7 +6,8 @@
 > i3-gaps  
 > ~~i3blocks~~  
 > Polybar  
-> rxvt-unicode  
+> ~~rxvt-unicode~~ 
+> termite
 > pactl  
 > xbacklight  
 > playerctl  
@@ -26,8 +27,8 @@ Dunst notifications:
 https://github.com/dunst-project/dunst
 
 ### Vim config:
-https://github.com/VundleVim/Vundle.vim  
-https://github.com/morhetz/gruvbox
+SpaceVim:
+https://github.com/SpaceVim/SpaceVim
   
 ### Shell config:  
 zsh (config from https://github.com/xero/dotfiles)  
