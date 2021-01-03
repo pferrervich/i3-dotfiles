@@ -17,7 +17,7 @@ set $mod Mod4
 #font pango:System San Francisco Display, FontAwesome 8
 #font pango: xos4 Terminus, FontAwesome 8
 
-font pango: lucy tewi, FontAwesome 8
+font pango: xos4 Terminus, FontAwesome 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,10 +34,10 @@ font pango: lucy tewi, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -108,11 +108,11 @@ bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
@@ -120,19 +120,19 @@ bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Programas abiertos en workspaces por defecto
-assign [class="URxvt"] $workspace1
+#assign [class="Alacritty"] $workspace1
 assign [class="Firefox"] $workspace2
-assign [class="Atom"] $workspace3
-assign [class="spotify"] $workspace10
-assign [class="Thunar"] $workspace4
+assign [class="code"] $workspace3
+assign [class="Spotify"] $workspace10
+assign [class="nautilus"] $workspace4
 
 
 # reload the configuration file
@@ -168,8 +168,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
+set $bg-color 	         #17191a
+set $inactive-bg-color   #17191a
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
@@ -203,10 +203,13 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 
-#Polybar
+# Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+exec_always --no-startup-id spotify-listener
 
+# Disable f***** annoying PC speaker
+exec_always --no-startup-id modprobe -r pcspkr
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -214,8 +217,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl s +10% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%- # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -227,7 +230,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screens config
-exec_always xrandr --output HDMI1 --off --output LVDS1 --mode 1366x768 --pos 1024x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output VGA1 --mode 1024x768 --pos 0x0 --rotate normal
+# exec_always xrandr --output HDMI1 --off --output LVDS1 --mode 1366x768 --pos 1024x0 --rotate normal --output VIRTUAL1 --off --output DP1 --off --output VGA1 --mode 1024x768 --pos 0x0 --rotate normal
 
 # Screen workspaces
 workspace "1: Terminales " output LVDS1
@@ -236,11 +239,16 @@ workspace "3: Editor " output LVDS1
 workspace "8: Secundaria " output VGA1
 workspace "10: Música " output LVDS1
 
-exec_always feh --bg-fill /home/poh/Imagenes/Wallpapers/wallhaven-476492.jpg
+# Wallpaper
+exec_always feh --bg-fill /home/username/Imágenes/Wallpapers/KH43Uao.jpg
+
+# Lock screen
+exec --no-startup-id betterlockscreen -w dim
+bindsym $mod+shift+x exec betterlockscreen -l dim
 
 #Gaps
-gaps inner 15
-gaps outer 10
+gaps inner 12
+gaps outer 7
 bindsym $mod+b gaps inner current plus 5
 bindsym $mod+shift+b gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
@@ -248,20 +256,27 @@ bindsym $mod+shift+z gaps outer current plus 5
 bindsym $mod+t split toggle
 bindsym $mod+shift+t gaps inner all set 5; gapps outer all set 10
 
+# Fullscreen Gaps
+bindsym $mod+Shift+m exec polybar-msg cmd toggle; gaps top all set 0;
 
 #Custom binds
-bindsym $mod+shift+x exec sh ~/.config/i3/lock.sh
+#bindsym $mod+shift+x exec sh ~/.config/i3/lock.sh
 #bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec $HOME/.config/rofi/launchers/colorful/launcher.sh
 
-#Custom execs
-exec URxvt
-exec firefox-nightly
-exec atom
-exec_always compton -f
-exec thunar
-exec sh ~/.config/i3/mouse.sh
+bindsym $mod+p exec flameshot full -p ~/Imágenes/Screenshots
+bindsym $mod+Shift+p exec flameshot gui
+
+# Custom execs
+#exec alacritty
+#exec firefox
+#exec code
+#exec_always compton -f
+#exec thunar
+#exec spotify
+#exec sh ~/.config/i3/mouse.sh
+
 
 #No title bars
 for_window [class="^.*"] border pixel 0

@@ -2,8 +2,8 @@
 
 import urllib.request, json
 
-city = "Palma de Mallorca"
-api_key = "3474b4c1c46d9fdfeee8070447166d8e"
+city = ""
+api_key = ""
 units = "Metric"
 unit_key = "C"
 

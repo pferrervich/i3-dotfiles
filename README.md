@@ -5,9 +5,11 @@
 ### Stuff needed
 
 > i3-gaps  
-> i3blocks  
+> i3blocks
+> polybar  
 > ~~rxvt-unicode~~
-> termite  
+> ~~termite~~  
+> alacritty
 > pactl  
 > xbacklight  
 > playerctl  
@@ -19,6 +21,7 @@
 > oh-my-zsh  
 > sxiv  
 > cava
+> betterlockscreenrc
 
 ### Shell config:
 
@@ -47,6 +50,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ` curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash`
 - Reopen terminal
 
+
+## Polybar config and user plugins
+
+* [polybar-spotify](https://github.com/PrayagS/polybar-spotify)
+	* playerctl
+	* zscroll
+* [polybar-forecast](https://github.com/kamek-pf/polybar-forecast)
+	* (API Key and City ID needed)
+ 
+
+
 ### Fonts:
 
 | Font                         | Link                                                                                                             |
@@ -55,3 +69,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 | FontAwesome                  | [https://fontawesome.com/](https://fontawesome.com/)                                                             |
 | Hack                         | [https://github.com/source-foundry/Hack](https://github.com/source-foundry/Hack)                                 |
 | Terminus                     | [http://terminus-font.sourceforge.net/](http://terminus-font.sourceforge.net/)                                   |
+| Siji Waffle		       | [https://addy-dclxvi.github.io/post/bitmap-fonts/](https://addy-dclxvi.github.io/post/bitmap-fonts/)	          |
+| Scientifica 		       | [https://github.com/NerdyPepper/scientifica](https://github.com/NerdyPepper/scientifica)		          |
+  
+
+**NOTE:** To copy and paste the Siji Waffle font, I've included a .ttf version to install it and then be able to visualize it with `charmap`. After you copied the glyphs on your config files, you must uninstall it to view the font correctly. 
